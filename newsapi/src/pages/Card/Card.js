@@ -1,26 +1,10 @@
-import React, { Component } from 'react';
-import './Card.css';
+import "./Card.css";
 
-class Card extends Component {
-  // constructor(props){
-    // super(props);
-    // this.state = {};
-  // }
+export default function Card() {
 
-  // componentWillMount(){}
-  // componentDidMount(){}
-  // componentWillUnmount(){}
-
-  // componentWillReceiveProps(){}
-  // shouldComponentUpdate(){}
-  // componentWillUpdate(){}
-  // componentDidUpdate(){}
-
-  render() {
-    return (
-      <div></div>
-    );
-  }
+  return (
+    <div>
+      <h2>Card</h2>
+    </div>
+  );
 }
-
-export default Card;
