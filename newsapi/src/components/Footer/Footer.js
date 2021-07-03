@@ -3,6 +3,7 @@ import Nav from "../Nav";
 import "./Footer.css";
 
 class Footer extends Component {
+  
   render() {
     return (
       <footer className="Footer">
@@ -15,3 +16,4 @@ class Footer extends Component {
 }
 
 export default Footer;
+
