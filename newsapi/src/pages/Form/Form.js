@@ -1,15 +1,18 @@
+import React from "react";
 import "./Form.css";
 
-const Form = () => {
+const Form = ({setFormData}) => {
+  
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = {
-      name: event.target.elements.name.value,
-      email: event.target.elements.email.value,
-      image: event.target.elements.image.value,
-      age: event.target.elements.age.value,
+      author: event.target.elements.author.value,
+      title: event.target.elements.title.value,
+      urlToImage: event.target.elements.urlToImage.value,
+      description: event.target.elements.description.value,
+      content: event.target.elements.content.value,
     };
-    console.log(data);
+    setFormData(data)
   };
 
   return (
@@ -27,7 +30,7 @@ const Form = () => {
           Image:
           <input
             type="text"
-            name="image"
+            name="urlToImage"
             placeholder="Please enter an image URL"
           />
         </label>
@@ -37,7 +40,7 @@ const Form = () => {
         </label>
         <label>
           Content:
-          <textarea name="description" rows="4"></textarea>
+          <textarea name="content" rows="4"></textarea>
         </label>
         <button type="submit">Add</button>
       </form>
