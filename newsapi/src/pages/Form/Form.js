@@ -1,6 +1,6 @@
 import "./Form.css";
 
-export default function Form() {
+const Form = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = {
@@ -44,3 +44,5 @@ export default function Form() {
     </div>
   );
 }
+
+export default Form;

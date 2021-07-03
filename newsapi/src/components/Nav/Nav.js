@@ -1,8 +1,10 @@
-import React from "react";
+import React, {useContext} from "react";
 import { Link } from "react-router-dom";
+import { UserContext } from "../../context/UserContext";
 import "./Nav.css";
 
-function Nav() {
+const Nav = () => {
+  const [user,] = useContext(UserContext)
   return (
     <nav className="Nav">
       <ul className="Nav__list">
@@ -17,6 +19,7 @@ function Nav() {
         <li>
           <Link to="/list">NewsList</Link>
         </li>
+        <li>User: {user}</li>
       </ul>
     </nav>
   );
