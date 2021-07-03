@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import './Card.css';
+import './Img.css';
 
-class Card extends Component {
+class Img extends Component {
   // constructor(props){
     // super(props);
     // this.state = {};
@@ -23,4 +23,4 @@ class Card extends Component {
   }
 }
 
-export default Card;
+export default Img;

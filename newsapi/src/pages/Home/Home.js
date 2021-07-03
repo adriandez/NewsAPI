@@ -1,26 +1,25 @@
-import React, { Component } from 'react';
-import './Home.css';
+import "./Home.css";
 
-class Home extends Component {
-  // constructor(props){
-    // super(props);
-    // this.state = {};
-  // }
+export default function Home() {
+  
+  const handleSubmit = (event) => {
+    event.preventDefault();
 
-  // componentWillMount(){}
-  // componentDidMount(){}
-  // componentWillUnmount(){}
+    const data = {
+      name: event.target.elements.name.value,
+    };
+    console.log(data);
+  };
 
-  // componentWillReceiveProps(){}
-  // shouldComponentUpdate(){}
-  // componentWillUpdate(){}
-  // componentDidUpdate(){}
-
-  render() {
-    return (
-      <div></div>
-    );
-  }
+  return (
+    <div>
+      <form onSubmit={handleSubmit}>
+        <label>
+          Name:
+          <input type="text" name="name" placeholder="Please enter your name" />
+        </label>
+        <button type="submit">Add</button>
+      </form>
+    </div>
+  );
 }
-
-export default Home;
