@@ -16,15 +16,21 @@ const ListNews = () => {
       const res = await axios.get(url)
       const news = res.data.articles
       const news5 = news.slice(0,5)
-      setNews(news5)
+      console.log(news5);
+      if (news5.length !== 0 && news5.length !== news.length) setNews(news5);
+      
     }
     getNews(url);
   }, []) 
+  console.log(news);
+  const renderList = () => news.map((e, i) => {
+    return <Card key={i} newsArt={e} />;
+  })
 
     return (
       <section>
       <h2>NewsList</h2>
-      <Card />
+      {renderList()}
       </section>
     );
   }
