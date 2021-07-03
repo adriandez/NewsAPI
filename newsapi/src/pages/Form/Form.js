@@ -1,26 +1,46 @@
-import React, { Component } from 'react';
-import './Form.css';
+import "./Form.css";
 
-class Form extends Component {
-  // constructor(props){
-    // super(props);
-    // this.state = {};
-  // }
+export default function Form() {
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const data = {
+      name: event.target.elements.name.value,
+      email: event.target.elements.email.value,
+      image: event.target.elements.image.value,
+      age: event.target.elements.age.value,
+    };
+    console.log(data);
+  };
 
-  // componentWillMount(){}
-  // componentDidMount(){}
-  // componentWillUnmount(){}
-
-  // componentWillReceiveProps(){}
-  // shouldComponentUpdate(){}
-  // componentWillUpdate(){}
-  // componentDidUpdate(){}
-
-  render() {
-    return (
-      <div></div>
-    );
-  }
+  return (
+    <div>
+      <form onSubmit={handleSubmit}>
+        <label>
+          Author:
+          <input type="text" name="author" />
+        </label>
+        <label>
+          Title:
+          <input type="text" name="title" />
+        </label>
+        <label>
+          Image:
+          <input
+            type="text"
+            name="image"
+            placeholder="Please enter an image URL"
+          />
+        </label>
+        <label>
+          Description:
+          <textarea name="description" rows="4"></textarea>
+        </label>
+        <label>
+          Content:
+          <textarea name="description" rows="4"></textarea>
+        </label>
+        <button type="submit">Add</button>
+      </form>
+    </div>
+  );
 }
-
-export default Form;

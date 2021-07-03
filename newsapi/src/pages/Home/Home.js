@@ -1,6 +1,6 @@
-import "./Formulario.css";
+import "./Home.css";
 
-export default function Formulario() {
+export default function Home() {
   
   const handleSubmit = (event) => {
     event.preventDefault();
