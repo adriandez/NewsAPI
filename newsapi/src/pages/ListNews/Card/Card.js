@@ -1,10 +1,12 @@
 import "./Card.css";
 
-export default function Card() {
+const Card = () => {
 
   return (
-    <div>
-      <h2>Card</h2>
-    </div>
+    <article>
+      <h3>Card</h3>
+    </article>
   );
 }
+
+export default Card
