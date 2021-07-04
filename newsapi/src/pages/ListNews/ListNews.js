@@ -1,38 +1,69 @@
-import React, {useState, useEffect} from 'react';
-import axios from 'axios';
-import Card from './Card'
-import './ListNews.css';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import { v4 as uuidv4 } from "uuid";
+import Card from "./Card";
+import "./ListNews.css";
 
-const ListNews = () => {
+const ListNews = ({ formData }) => {
+  const [news, setNews] = useState([]);
 
-  const [news,setNews] = useState([])
-  
   useEffect(() => {
+    const myDataArray = [];
     const url =
       "https://newsapi.org/v2/top-headlines?" +
       "sources=bbc-news&" +
       `apiKey=${process.env.REACT_APP_API_KEY}`;
-    const getNews = async (url) =>{
-      const res = await axios.get(url)
-      const news = res.data.articles
-      const news5 = news.slice(0,5)
-      console.log(news5);
-      if (news5.length !== 0 && news5.length !== news.length) setNews(news5);
-      
-    }
+    const getNews = async (url) => {
+      const res = await axios.get(url);
+      const news = res.data.articles;
+      const news5 = news.slice(0, 5);
+      news5.forEach((element) => {
+        const myNewsData = {
+          _id: uuidv4(),
+          author: element.author,
+          title: element.title,
+          urlToImage: element.urlToImage,
+          description: element.description,
+          content: element.content,
+        };
+        myDataArray.push(myNewsData);
+      });
+      setNews(myDataArray);
+    };
     getNews(url);
-  }, []) 
-  console.log(news);
-  const renderList = () => news.map((e, i) => {
-    return <Card key={i} newsArt={e} />;
-  })
+    if (formData && formData.length !== 0)
+      formData.forEach((element) => {
+        myDataArray.push(element);
+      });
+  }, []);
 
-    return (
-      <section>
+  const removeAllNews = () => setNews([]);
+
+  const removeOneTask = (i) => {
+    let filteredArray = news.filter((e) => i !== e._id);
+    console.log("state de app", filteredArray);
+    setNews(filteredArray);
+  };
+
+  const renderList = () =>
+    news.map((e, index) => {
+      return (
+        <Card 
+        i={index} 
+        key={e._id} 
+        newsArt={e} 
+        remove={()=>removeOneTask(e._id)} 
+        />
+      );
+    });
+
+  return (
+    <section>
       <h2>NewsList</h2>
       {renderList()}
-      </section>
-    );
-  }
+      <button onClick={removeAllNews}>Delete All</button>
+    </section>
+  );
+};
 
 export default ListNews;

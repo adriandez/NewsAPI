@@ -1,15 +1,26 @@
+import { v4 as uuidv4 } from "uuid";
 import "./Form.css";
 
-const Form = () => {
+const Form = ({ setFormData }) => {
+
+  const dataTrasfer = (arr) => setFormData(arr);
+
   const handleSubmit = (event) => {
     event.preventDefault();
+    const arr = localStorage.getItem("newArti")
+      ? JSON.parse(localStorage.getItem("newArti"))
+      : [];
     const data = {
-      name: event.target.elements.name.value,
-      email: event.target.elements.email.value,
-      image: event.target.elements.image.value,
-      age: event.target.elements.age.value,
+      _id: uuidv4(),
+      author: event.target.elements.author.value,
+      title: event.target.elements.title.value,
+      urlToImage: event.target.elements.urlToImage.value,
+      description: event.target.elements.description.value,
+      content: event.target.elements.content.value,
     };
-    console.log(data);
+    arr.push(data);
+    localStorage.setItem("newArti", JSON.stringify(arr));
+    dataTrasfer(arr);
   };
 
   return (
@@ -27,7 +38,7 @@ const Form = () => {
           Image:
           <input
             type="text"
-            name="image"
+            name="urlToImage"
             placeholder="Please enter an image URL"
           />
         </label>
@@ -37,12 +48,12 @@ const Form = () => {
         </label>
         <label>
           Content:
-          <textarea name="description" rows="4"></textarea>
+          <textarea name="content" rows="4"></textarea>
         </label>
         <button type="submit">Add</button>
       </form>
     </div>
   );
-}
+};
 
 export default Form;
