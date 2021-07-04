@@ -1,37 +1,11 @@
-import React, {useState, useEffect} from 'react';
-import axios from 'axios';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import { v4 as uuidv4 } from "uuid";
-import Card from './Card'
-import './ListNews.css';
+import Card from "./Card";
+import "./ListNews.css";
 
-const ListNews = ({formData}) => {
-
-  
-
+const ListNews = ({ formData }) => {
   const [news, setNews] = useState([]);
-
-  //const [news2, setNews2] = useState({ news2:[...news, ...newsArti] });
-
-  const [newsArti,setNewsArti] = useState({})
-
-  const addNewsArti = (formData) => {
-    if (formData) {
-      const myFormData = {
-        _id: uuidv4(),
-        author: formData.author,
-        title: formData.title,
-        urlToImage: formData.urlToImage,
-        description: formData.description,
-        content: formData.content,
-      };
-      setNewsArti(myFormData);
-      console.log(newsArti);
-    } 
-    
-  }
-
-  // const addNewsToNews = () =>
-  //   news ? setNews2([...news, newsArti]) : "";
 
   useEffect(() => {
     const myDataArray = [];
@@ -43,8 +17,7 @@ const ListNews = ({formData}) => {
       const res = await axios.get(url);
       const news = res.data.articles;
       const news5 = news.slice(0, 5);
-
-      news5.forEach(element => {
+      news5.forEach((element) => {
         const myNewsData = {
           _id: uuidv4(),
           author: element.author,
@@ -56,22 +29,41 @@ const ListNews = ({formData}) => {
         myDataArray.push(myNewsData);
       });
       setNews(myDataArray);
-      addNewsArti(formData);
-      //addNewsToNews();
     };
     getNews(url);
+    if (formData && formData.length !== 0)
+      formData.forEach((element) => {
+        myDataArray.push(element);
+      });
   }, []);
 
-  // const renderList = () =>
-  //   news.map((e, i) => {
-  //     return <Card key={i} newsArt={e} />;
-  //   });
+  const removeAllNews = () => setNews([]);
+
+  const removeOneTask = (i) => {
+    let filteredArray = news.filter((e) => i !== e._id);
+    console.log("state de app", filteredArray);
+    setNews(filteredArray);
+  };
+
+  const renderList = () =>
+    news.map((e, index) => {
+      return (
+        <Card 
+        i={index} 
+        key={e._id} 
+        newsArt={e} 
+        remove={()=>removeOneTask(e._id)} 
+        />
+      );
+    });
 
   return (
     <section>
       <h2>NewsList</h2>
+      {renderList()}
+      <button onClick={removeAllNews}>Delete All</button>
     </section>
   );
-}
+};
 
 export default ListNews;

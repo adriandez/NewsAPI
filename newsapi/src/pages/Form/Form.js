@@ -1,16 +1,17 @@
-import React, { useState, useEffect } from "react";
+import { v4 as uuidv4 } from "uuid";
 import "./Form.css";
 
-const Form = ({setFormData}) => {
+const Form = ({ setFormData }) => {
 
-  const arr = localStorage.getItem('newArti') ? JSON.parse(localStorage.getItem('newArti')) : []
+  const dataTrasfer = (arr) => setFormData(arr);
 
-  console.log(arr);
-  
   const handleSubmit = (event) => {
-    
     event.preventDefault();
+    const arr = localStorage.getItem("newArti")
+      ? JSON.parse(localStorage.getItem("newArti"))
+      : [];
     const data = {
+      _id: uuidv4(),
       author: event.target.elements.author.value,
       title: event.target.elements.title.value,
       urlToImage: event.target.elements.urlToImage.value,
@@ -18,7 +19,8 @@ const Form = ({setFormData}) => {
       content: event.target.elements.content.value,
     };
     arr.push(data);
-    localStorage.setItem("newArti",JSON.stringify(arr));
+    localStorage.setItem("newArti", JSON.stringify(arr));
+    dataTrasfer(arr);
   };
 
   return (
@@ -52,6 +54,6 @@ const Form = ({setFormData}) => {
       </form>
     </div>
   );
-}
+};
 
 export default Form;

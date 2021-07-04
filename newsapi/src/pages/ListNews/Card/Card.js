@@ -1,6 +1,6 @@
 import "./Card.css";
 
-const Card = ({newsArt}) => {
+const Card = ({i, key, newsArt, remove}) => {
   return (
     <article>
       <h3>{newsArt.author}</h3>
@@ -8,7 +8,7 @@ const Card = ({newsArt}) => {
       <img src={newsArt.urlToImage} alt="news photografic element" />
       <p>{newsArt.description}</p>
       <p>{newsArt.content}</p>
-      <button>Borrar</button>
+      <button onClick={remove}>Delete</button>
     </article>
   );
 }
