@@ -8,6 +8,7 @@ const Card = ({newsArt}) => {
       <img src={newsArt.urlToImage} alt="news photografic element" />
       <p>{newsArt.description}</p>
       <p>{newsArt.content}</p>
+      <button>Borrar</button>
     </article>
   );
 }
