@@ -1,0 +1,59 @@
+@import "../../sass/colors";
+@import "../../sass/mixins";
+.ListNews {
+  @include flex-column();
+  article {
+    margin-bottom: 20px;
+  }
+  article > h3,
+  h4,
+  p {
+    margin-bottom: 5px;
+  }
+  article > img {
+    width: 280px;
+    margin-bottom: 5px;
+  }
+}
+
+$viewport-phone: 300px;
+$viewport-tablet: 564px;
+$viewport-desktop: 960px;
+
+@media screen and (min-width: $viewport-tablet) and (max-width: $viewport-desktop) {
+  .ListNews {
+    margin-left: 10%;
+    @include flex-column();
+    article {
+      margin-bottom: 20px;
+    }
+    article > h3,
+    h4,
+    p {
+      margin-bottom: 5px;
+    }
+    article > img {
+      width: 680px;
+      margin-bottom: 5px;
+    }
+  }
+}
+
+@media screen and (min-width: $viewport-desktop) {
+  .ListNews {
+    margin-left: 70%;
+    @include flex-column();
+    article {
+      margin-bottom: 20px;
+    }
+    article > h3,
+    h4,
+    p {
+      margin-bottom: 5px;
+    }
+    article > img {
+      width: 1000px;
+      margin-bottom: 5px;
+    }
+  }
+}

@@ -1,0 +1,21 @@
+@import "../../sass/mixins";
+
+.Form {
+  margin-top: 70px;
+  margin-left: 45px;
+  > h3 {
+    margin-bottom: 15px;
+  }
+  > form {
+    @include flex-column();
+    list-style: none;
+    > div.wrapperForm {
+      margin-top: 2px;
+      margin-bottom: 5px;
+    }
+    > button {
+      margin-top: 10px;
+    }
+  }
+}
+

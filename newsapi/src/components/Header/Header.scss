@@ -1,0 +1,19 @@
+@import "../../sass/colors";
+@import "../../sass/mixins";
+
+.Header {
+  background: $color-primary;
+  width: 100%;
+  top: 0; // lo que lo pega al borde de arriba
+  position: fixed;
+  color: white;
+  box-shadow: 4px 4px 24px $color-primary-dark;
+  > div.wrapper {
+    @include flex-row-space-between();
+    flex-flow: nowrap;
+    > h2 {
+      margin: 10px;
+      font-family: sans-serif;
+    }
+  }
+}

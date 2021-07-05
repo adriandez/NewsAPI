@@ -1,8 +1,7 @@
 import { v4 as uuidv4 } from "uuid";
-import "./Form.css";
+import "./Form.scss";
 
 const Form = ({ setFormData }) => {
-
   const dataTrasfer = (arr) => setFormData(arr);
 
   const handleSubmit = (event) => {
@@ -24,35 +23,31 @@ const Form = ({ setFormData }) => {
   };
 
   return (
-    <div>
+    <section className="Form">
+      <h3>Create News Content</h3>
       <form onSubmit={handleSubmit}>
-        <label>
-          Author:
-          <input type="text" name="author" />
-        </label>
-        <label>
-          Title:
-          <input type="text" name="title" />
-        </label>
-        <label>
-          Image:
-          <input
-            type="text"
-            name="urlToImage"
-            placeholder="Please enter an image URL"
-          />
-        </label>
-        <label>
-          Description:
-          <textarea name="description" rows="4"></textarea>
-        </label>
-        <label>
-          Content:
-          <textarea name="content" rows="4"></textarea>
-        </label>
+        <div className="wrapperForm">
+          <input type="text" name="author" placeholder="Author" />
+        </div>
+        <div className="wrapperForm">
+          <input type="text" name="title" placeholder="Title" />
+        </div>
+        <div className="wrapperForm">
+          <input type="text" name="urlToImage" placeholder="Image Url" />
+        </div>
+        <div className="wrapperFormArea">
+          <textarea
+            name="description"
+            rows="4"
+            placeholder="Description"
+          ></textarea>
+        </div>
+        <div className="wrapperFormArea">
+          <textarea name="content" rows="4" placeholder="Content"></textarea>
+        </div>
         <button type="submit">Add</button>
       </form>
-    </div>
+    </section>
   );
 };
 
