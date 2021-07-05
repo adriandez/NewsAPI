@@ -1,29 +1,59 @@
 @import "../../sass/colors";
 @import "../../sass/mixins";
-.Products {
+.ListNews {
   @include flex-column();
-  border-radius: 24px;
-  box-shadow: 4px 4px 24px $color-primary-dark,
-    -4px -4px 24px $color-primary-light;
-padding: 12px 24px;
-  > * {
-    margin-bottom: 12px;
-    &:nth-child(2) {
-      @include flex-row-space-between();
-      width: 100%;
-      margin-bottom: 48px;
+  article {
+    margin-bottom: 20px;
+  }
+  article > h3,
+  h4,
+  p {
+    margin-bottom: 5px;
+  }
+  article > img {
+    width: 280px;
+    margin-bottom: 5px;
+  }
+}
+
+$viewport-phone: 300px;
+$viewport-tablet: 564px;
+$viewport-desktop: 960px;
+
+@media screen and (min-width: $viewport-tablet) and (max-width: $viewport-desktop) {
+  .ListNews {
+    margin-left: 10%;
+    @include flex-column();
+    article {
+      margin-bottom: 20px;
+    }
+    article > h3,
+    h4,
+    p {
+      margin-bottom: 5px;
+    }
+    article > img {
+      width: 680px;
+      margin-bottom: 5px;
     }
   }
-  > *:first-child {
-    margin-top: 12px;
-  }
+}
 
-  > .container {
-    padding: 0 auto;
-    width: 100%;
-    @include flex-row();
-  }
-  > p {
-      color: $color-type-light
+@media screen and (min-width: $viewport-desktop) {
+  .ListNews {
+    margin-left: 70%;
+    @include flex-column();
+    article {
+      margin-bottom: 20px;
+    }
+    article > h3,
+    h4,
+    p {
+      margin-bottom: 5px;
+    }
+    article > img {
+      width: 1000px;
+      margin-bottom: 5px;
+    }
   }
 }

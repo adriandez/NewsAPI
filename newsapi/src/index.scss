@@ -1,25 +1,55 @@
 @import "../src/sass/colors";
+
+#react-burger-menu-btn {
+  border-radius: 0;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: sans-serif;
 }
+
 $viewport-phone: 300px;
 $viewport-tablet: 564px;
 $viewport-desktop: 960px;
 
-.wrapper {
-  margin: 0 auto;
+.wrapperMain {
+  margin-top: 3.1em;
+  margin-left: 0.6em;
   width: $viewport-phone;
 }
-@media screen and (min-width: $viewport-tablet + 1px) and (max-width: $viewport-desktop - 1px) {
-  .wrapper {
-    width: $viewport-tablet;
+.wrapperHeader {
+  margin-top: 0.3em;
+  margin-bottom: 0.3em;
+  margin-left: 0.8em;
+  width: $viewport-phone;
+}
+
+@media screen and (min-width: $viewport-tablet) and (max-width: $viewport-desktop) {
+  .wrapperMain {
+    margin-top: 3.1em;
+    margin-left: 0.6em;
+    width: $viewport-phone;
+  }
+  .wrapperHeader {
+    margin-top: 0.3em;
+    margin-bottom: 0.3em;
+    margin-left: 0.8em;
+    width: $viewport-phone;
   }
 }
-@media screen and (min-width: $viewport-desktop + 1px) {
-  .wrapper {
-    width: $viewport-desktop;
+@media screen and (min-width: $viewport-desktop) {
+  .wrapperMain {
+    margin-top: 3.1em;
+    margin-left: 0.6em;
+    width: $viewport-phone;
+  }
+  .wrapperHeader {
+    margin-top: 0.3em;
+    margin-bottom: 0.3em;
+    margin-left: 0.8em;
+    width: $viewport-phone;
   }
 }

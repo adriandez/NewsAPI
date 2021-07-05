@@ -58,8 +58,7 @@ const ListNews = ({ formData }) => {
     });
 
   return (
-    <section>
-      <h2>NewsList</h2>
+    <section className="ListNews">
       {renderList()}
       <button onClick={removeAllNews}>Delete All</button>
     </section>

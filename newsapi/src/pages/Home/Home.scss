@@ -1,7 +1,12 @@
-/*
- * Home css File
-*/
+@import "../../sass/mixins";
 
 .Home {
-    /* propertys here */
+  margin-top: 113px;
+  margin-left: 45px;
+  width: 80%;
+  list-style: none;
+  @include flex-column();
+  > form > div {
+    margin-bottom: 10px;
+  }
 }

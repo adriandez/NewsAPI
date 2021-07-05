@@ -9,7 +9,7 @@ const Main = () => {
 const [formData, setFormData] = useState();
     return (
       <main className="Main">
-        <div className="wrapper">
+        <div className="wrapperMain">
           <Switch>
             <Route path="/home" component={Home} />
             <Route

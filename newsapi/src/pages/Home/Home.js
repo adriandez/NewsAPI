@@ -12,17 +12,15 @@ const Home = () => {
   };
 
   return (
-    <div>
-        <form onSubmit={handleSubmit}>
-          <label>
-            Name:
-            <input
-              type="text"
-              name="name"
-            />
-          </label>
-          <button type="submit">Add</button>
-        </form>
+    <div className="Home">
+      <form onSubmit={handleSubmit}>
+        <div>
+          <input type="text" name="name" placeholder="Name" />
+        </div>
+        <div>
+        <button type="submit">Add</button>
+        </div>
+      </form>
     </div>
   );
 }
