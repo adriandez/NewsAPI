@@ -1,6 +1,6 @@
 import "./Card.scss";
 
-const Card = ({i, key, newsArt, remove}) => {
+const Card = ({newsArt, remove}) => {
   return (
     <article>
       <h3>{newsArt.author}</h3>

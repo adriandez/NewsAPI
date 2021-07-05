@@ -4,11 +4,12 @@ import { UserContext } from "../../context/UserContext";
 import "./Home.scss";
 
 const Home = () => {
-  const [user,setUser] = useContext(UserContext)
+  // eslint-disable-next-line
+  const [user, setUser] = useContext(UserContext);
   const handleSubmit = (event) => {
     event.preventDefault();
-    const data = event.target.elements.name.value
-    setUser(data)
+    const data = event.target.elements.name.value;
+    setUser(data);
   };
 
   return (
@@ -18,7 +19,7 @@ const Home = () => {
           <input type="text" name="name" placeholder="Name" />
         </div>
         <div>
-        <button type="submit">Add</button>
+          <button type="submit">Add</button>
         </div>
       </form>
     </div>

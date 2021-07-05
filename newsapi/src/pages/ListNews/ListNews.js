@@ -4,9 +4,9 @@ import { v4 as uuidv4 } from "uuid";
 import Card from "./Card";
 import "./ListNews.scss";
 
-const ListNews = ({ formData }) => {
+const ListNews = ({ formData, setFormData }) => {
+  localStorage.clear("newArti");
   const [news, setNews] = useState([]);
-
   useEffect(() => {
     const myDataArray = [];
     const url =
@@ -35,28 +35,27 @@ const ListNews = ({ formData }) => {
       formData.forEach((element) => {
         myDataArray.push(element);
       });
+      return () => {
+        setFormData([])
+      };
+    // eslint-disable-next-line
   }, []);
-
   const removeAllNews = () => setNews([]);
-
   const removeOneTask = (i) => {
     let filteredArray = news.filter((e) => i !== e._id);
-    console.log("state de app", filteredArray);
     setNews(filteredArray);
   };
-
   const renderList = () =>
     news.map((e, index) => {
       return (
-        <Card 
-        i={index} 
-        key={e._id} 
-        newsArt={e} 
-        remove={()=>removeOneTask(e._id)} 
+        <Card
+          i={index}
+          key={e._id}
+          newsArt={e}
+          remove={() => removeOneTask(e._id)}
         />
       );
     });
-
   return (
     <section className="ListNews">
       {renderList()}
@@ -66,3 +65,6 @@ const ListNews = ({ formData }) => {
 };
 
 export default ListNews;
+
+
+

@@ -18,7 +18,9 @@ const [formData, setFormData] = useState();
             />
             <Route
               path="/list"
-              component={() => <ListNews formData={formData} />}
+              component={() => (
+                <ListNews formData={formData} setFormData={setFormData} />
+              )}
             />
           </Switch>
         </div>

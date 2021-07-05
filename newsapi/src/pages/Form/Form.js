@@ -2,6 +2,7 @@ import { v4 as uuidv4 } from "uuid";
 import "./Form.scss";
 
 const Form = ({ setFormData }) => {
+
   const dataTrasfer = (arr) => setFormData(arr);
 
   const handleSubmit = (event) => {

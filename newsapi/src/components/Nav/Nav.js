@@ -6,7 +6,7 @@ import "./Nav.scss";
 
 const Nav = () => {
   const [user] = useContext(UserContext);
-
+  // eslint-disable-next-line
   const showSettings = (event) => {
     event.preventDefault();
   };
