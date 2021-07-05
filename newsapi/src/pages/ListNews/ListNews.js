@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { v4 as uuidv4 } from "uuid";
 import Card from "./Card";
-import "./ListNews.css";
+import "./ListNews.scss";
 
 const ListNews = ({ formData }) => {
   const [news, setNews] = useState([]);

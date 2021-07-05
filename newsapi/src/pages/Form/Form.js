@@ -1,5 +1,5 @@
 import { v4 as uuidv4 } from "uuid";
-import "./Form.css";
+import "./Form.scss";
 
 const Form = ({ setFormData }) => {
 
@@ -39,7 +39,6 @@ const Form = ({ setFormData }) => {
           <input
             type="text"
             name="urlToImage"
-            placeholder="Please enter an image URL"
           />
         </label>
         <label>

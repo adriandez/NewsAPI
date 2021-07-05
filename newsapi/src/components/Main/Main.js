@@ -3,7 +3,7 @@ import { Route, Switch } from "react-router-dom";
 import Home from "../../pages/Home";
 import Form from "../../pages/Form";
 import ListNews from "../../pages/ListNews";
-import "./Main.css";
+import "./Main.scss";
 
 const Main = () => {
 const [formData, setFormData] = useState();
